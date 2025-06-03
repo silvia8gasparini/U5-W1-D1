@@ -1,13 +1,34 @@
 package it.epicode.U5W1D1.bean;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
 
-@Component
+@Getter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Menu {
-    @Autowired
-    private List<Prodotto> prodotti;
+    private List<Pizza> pizzaList;
+    private List<Drink> drinkList;
+    private List<Topping> toppingList;
 
+    public void printMenu() {
+        System.out.println("******* Menu *******");
+        System.out.println("PIZZAS");
+        this.pizzaList.forEach(System.out::println);
+        System.out.println();
+
+        System.out.println("TOPPINGS");
+        this.toppingList.forEach(System.out::println);
+        System.out.println();
+
+        System.out.println("DRINKS");
+        this.drinkList.forEach(System.out::println);
+        System.out.println();
+
+    }
 }
